@@ -16,7 +16,7 @@ class Reserva(models.Model):
     sala = models.ForeignKey(Sala, on_delete=models.CASCADE)
     rut_usuario = models.CharField(max_length=12)
     fecha_inicio = models.DateTimeField(auto_now_add=True)
-    fecha_termino = models.DateTimeField()
+    fecha_termino = models.DateTimeField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.id and not self.fecha_termino:
